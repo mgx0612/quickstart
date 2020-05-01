@@ -19,8 +19,7 @@ namespace MVCClient
             Configuration = configuration;
         }
 
-        private const string Cookies = "Cookies";
-        private const string oidc = "oidc";
+       
 
         public IConfiguration Configuration { get; }
 
@@ -31,9 +30,9 @@ namespace MVCClient
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
             services.AddAuthentication(options => {
-                options.DefaultScheme = Cookies;
-                options.DefaultChallengeScheme = oidc;
-            }).AddCookie(Cookies).AddOpenIdConnect(oidc, options => {
+                options.DefaultScheme = Utils.SchemeCookie;
+                options.DefaultChallengeScheme = Utils.SchemeOidc;
+            }).AddCookie(Utils.SchemeCookie).AddOpenIdConnect(Utils.SchemeOidc, options => {
                 options.Authority = "http://localhost:5000";
                 options.RequireHttpsMetadata = false;
                 options.ClientId = "mvc";

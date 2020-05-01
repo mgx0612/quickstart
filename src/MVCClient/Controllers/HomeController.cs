@@ -23,6 +23,11 @@ namespace MVCClient.Controllers
             return View();
         }
 
+        public IActionResult Logout()
+        {
+            return SignOut(Utils.SchemeCookie, Utils.SchemeOidc);
+        }
+
         public IActionResult Privacy()
         {
             return View();
