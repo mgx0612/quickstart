@@ -9,5 +9,9 @@ namespace MVCClient
     {
         public const string SchemeCookie = "Cookies";
         public const string SchemeOidc = "oidc";
+
+        public const string ScopeOffilineAccess = "offline_access";
+        public const string AccessToken = "access_token";
+        public const string RefreshToken = "refresh_token";
     }
 }

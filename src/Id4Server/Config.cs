@@ -48,7 +48,9 @@ namespace Id4Server
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                    }
+                        "api12"
+                    },
+                    AllowOfflineAccess = true,
                 }
              };
 

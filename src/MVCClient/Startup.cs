@@ -39,6 +39,8 @@ namespace MVCClient
                 options.ClientSecret = "mxsecret";
                 options.ResponseType = "code";
                 options.SaveTokens = true;
+                options.Scope.Add("api12");
+                options.Scope.Add(Utils.ScopeOffilineAccess);
             });
 
         }
