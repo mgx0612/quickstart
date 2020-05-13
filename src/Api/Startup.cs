@@ -33,6 +33,10 @@ namespace Api
                 options.Audience = "api12";
                 options.RequireHttpsMetadata = false;
             });
+
+            services.AddCors(options =>  
+                options.AddPolicy("default", policy=> policy.WithOrigins("http://localhost:5003").AllowAnyHeader().AllowAnyMethod())
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,7 @@ namespace Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("default");
 
             app.UseAuthentication();
             app.UseAuthorization();
