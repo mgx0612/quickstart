@@ -82,7 +82,8 @@ namespace Id4Server
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
-                        "mgxserver"
+                        "mgxserver",
+                        "api12"
                     },
                 }
              };
