@@ -19,7 +19,8 @@ namespace Id4Server
         public static IEnumerable<ApiResource> Apis =>
             new ApiResource[]
             {
-                new ApiResource("api12","My API")
+                new ApiResource("api12","My API"),
+                new ApiResource("mgxserver", "mgx game server")
             };
 
         public static IEnumerable<Client> Clients =>
@@ -66,6 +67,22 @@ namespace Id4Server
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "api12"
+                    },
+                },
+                new Client
+                {
+                    ClientId = "mgxhtml5client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+                    RedirectUris = {"http://localhost:5550/callback.html"},
+                    PostLogoutRedirectUris = {"http://localhost:5550/index.html"},
+                    AllowedCorsOrigins = {"http://localhost:5550"},
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "mgxserver"
                     },
                 }
              };

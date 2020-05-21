@@ -33,9 +33,9 @@ namespace Api
                 options.Audience = "api12";
                 options.RequireHttpsMetadata = false;
             });
-
+            var origins = new string[] { "http://localhost:5003", "http://localhost:5550" };
             services.AddCors(options =>  
-                options.AddPolicy("default", policy=> policy.WithOrigins("http://localhost:5003").AllowAnyHeader().AllowAnyMethod())
+                options.AddPolicy("default", policy=> policy.WithOrigins(origins).AllowAnyHeader().AllowAnyMethod())
             );
         }
 
